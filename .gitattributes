@@ -1,0 +1,21 @@
+.pgpass filter=git-crypt diff=git-crypt
+* text=auto eol=lf
+
+*.sh     text
+*.zsh    text
+*.bash   text
+*.vim    text
+*.lua    text
+*.tmux*  text
+*.conf   text
+*.config text
+*.gitconfig text
+
+*.sh     diff
+*.zsh    diff
+*.conf   diff
+
+*.png    binary
+*.jpg    binary
+*.ttf    binary
+*.otf    binary

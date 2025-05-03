@@ -1,4 +1,3 @@
-.pgpass filter=git-crypt diff=git-crypt
 * text=auto eol=lf
 
 *.sh     text

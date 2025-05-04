@@ -1,4 +1,4 @@
-src/* filter=git-crypt diff=git-crypt
+files-crypt/* filter=git-crypt diff=git-crypt
 
 * text=auto eol=lf
 

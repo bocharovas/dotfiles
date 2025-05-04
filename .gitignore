@@ -1,4 +1,5 @@
 /backup/
+/.git-crypt/
 
 .gitconfig.local
 .netrc

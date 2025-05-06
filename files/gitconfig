@@ -1,11 +1,19 @@
 [user]
 	name = bocharovas
 	email = puppaterraform@mail.ru
-	signingkey = C52ADE075FFB63E0
+	signingkey = 5FAD00EA873D76E4C0A2ADBF2F2D5F7E67EE3669
 [init]
 	defaultBranch = main
+[core]
+	editor = vim
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
 [commit]
-	gpgsign = true
+	gpgSign = true
 [alias]
 	lgp = log --graph --pretty=format:'%C(auto)%h %C(bold blue)%an%C(reset) — %s %C(dim)(%cr)%C(reset)' --abbrev-commit --date=relative	
 	lgo = log --graph --decorate --all --pretty=format:'%C(auto)%h%C(reset) %C(yellow)%G?%C(reset) %C(cyan)%d%C(reset) %C(white)%ad%C(reset) %s' --date=short

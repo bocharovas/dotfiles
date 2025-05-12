@@ -24,11 +24,9 @@ install() {
 	    exit 1
   fi
 
-   # Проверка наличия pnpm
   if ! command -v pnpm &> /dev/null; then
     echo "pnpm is not installed."
 
-    # Установка через corepack, если он есть
     if command -v corepack &> /dev/null; then
       echo "Using corepack to install pnpm..."
       corepack enable
@@ -41,12 +39,18 @@ install() {
     echo "pnpm is already installed."
   fi
 
-  # Установка зависимостей через pnpm
   if [ -f "package.json" ]; then
     echo "Running pnpm install..."
     pnpm install
   else
     echo "No package.json found. Skipping pnpm install."
+  fi
+
+  if ! pnpm list --depth=0 | grep -q git-cz; then
+    echo "Installing git-cz as a dev dependency..."
+    pnpm add -D git-cz
+  else
+    echo "git-cz is already present in devDependencies."
   fi
 
   echo "Installation complete!"

@@ -1,4 +1,6 @@
+*.asc
 /backup/
+/node_modules/
 
 .gitconfig.local
 .netrc

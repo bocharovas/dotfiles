@@ -5,8 +5,8 @@ module.exports = {
   maxMessageLength: 64,
   minMessageLength: 3,
   questions: ['type', 'scope', 'subject', 'body', 'breaking', 'issues', 'lerna'],
-  scopes: ['scripts', 'files', 'files-crypt'],
-  types: {
+  scopes: ['scripts', 'files', 'files-crypt', 'package.json'],
+    types: {
     chore: {
       description: 'Build process or auxiliary tool changes',
       emoji: '🤖',

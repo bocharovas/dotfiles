@@ -119,13 +119,15 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-export GPG_TTY=$(tty)
-export EXPECTED_IP="178.217.101.33"
 
-# pnpm
+export GPG_TTY=$(tty)
+
 export PNPM_HOME="/home/duduk/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-# pnpm end
+
+if [ -d "$HOME/projects/script-dump/src" ]; then
+  PATH="$PATH:$(find "$HOME/projects/script-dump/src" -type d -print | tr '\n' ':' | sed 's/:$//')"
+fi

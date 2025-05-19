@@ -36,7 +36,7 @@ If you want to use encrypted files, such as `.pgpass`, with this repository, you
 
 - On **Ubuntu/Debian**:
   ```bash
-  sudo apt-get install git-crypt
+  sudo apt install git-crypt
 
 ## Structure
 

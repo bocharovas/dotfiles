@@ -17,4 +17,5 @@
 [alias]
 	lgp = log --graph --pretty=format:'%C(auto)%h %C(bold blue)%an%C(reset) — %s %C(dim)(%cr)%C(reset)' --abbrev-commit --date=relative	
 	lgo = log --graph --decorate --all --pretty=format:'%C(auto)%h%C(reset) %C(yellow)%G?%C(reset) %C(cyan)%d%C(reset) %C(white)%ad%C(reset) %s' --date=short
-	lg = log --graph --decorate --all --pretty=format:'%C(auto)%h%C(reset) %C(yellow)%G?%C(reset) %C(cyan)%d%C(reset) %C(white)(%ar)%C(reset) %s'
+	lga = log --graph --decorate --all --pretty=format:'%C(auto)%h%C(reset) %C(yellow)%G?%C(reset) %C(cyan)%d%C(reset) %C(white)(%ar)%C(reset) %s'
+	lg = log --graph --decorate --pretty=format:'%C(auto)%h%C(reset) %C(yellow)%G?%C(reset) %C(cyan)%d%C(reset) %C(white)(%ar)%C(reset) %s'

@@ -5,7 +5,7 @@ module.exports = {
   maxMessageLength: 64,
   minMessageLength: 3,
   questions: ['type', 'scope', 'subject', 'body', 'breaking', 'issues', 'lerna'],
-  scopes: ['scripts', 'files', 'files-crypt', 'package.json'],
+  scopes: ['scripts', 'files', 'files-crypt', 'package.json', 'xfce4-session.xml'],
     types: {
     chore: {
       description: 'Build process or auxiliary tool changes',

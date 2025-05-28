@@ -1,13 +1,12 @@
 module.exports = {
-  disableEmoji: false,
+  disableEmoji: true,
   format: '{type}{scope}: {emoji}{subject}',
   list: ['test', 'feat', 'fix', 'chore', 'docs', 'refactor', 'style', 'ci', 'perf'],
   maxMessageLength: 64,
   minMessageLength: 3,
   questions: ['type', 'scope', 'subject', 'body', 'breaking', 'issues', 'lerna'],
-  scopes: ['scripts', 'files', 'files-crypt', 'package.json', 'xfce4-session.xml',
-  		'init.lua'],
-    types: {
+  scopes: ['scripts', 'files', 'files-crypt', 'package.json', 'xfce4-session.xml', 'init.lua'],
+  types: {
     chore: {
       description: 'Build process or auxiliary tool changes',
       emoji: '🤖',
@@ -30,7 +29,7 @@ module.exports = {
     },
     fix: {
       description: 'A bug fix',
-      // emoji: '🐛',
+      emoji: '🐛',
       value: 'fix'
     },
     perf: {

@@ -77,4 +77,3 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 
 -- Указываем python3 интерпретатор для плагинов, если нужно
 vim.g.python3_host_prog = "/usr/bin/python3"
-

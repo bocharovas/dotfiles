@@ -5,7 +5,8 @@ module.exports = {
   maxMessageLength: 64,
   minMessageLength: 3,
   questions: ['type', 'scope', 'subject', 'body', 'breaking', 'issues', 'lerna'],
-  scopes: ['scripts', 'files', 'files-crypt', 'package.json', 'xfce4-session.xml'],
+  scopes: ['scripts', 'files', 'files-crypt', 'package.json', 'xfce4-session.xml',
+  		'init.lua'],
     types: {
     chore: {
       description: 'Build process or auxiliary tool changes',
@@ -29,7 +30,7 @@ module.exports = {
     },
     fix: {
       description: 'A bug fix',
-      emoji: '🐛',
+      // emoji: '🐛',
       value: 'fix'
     },
     perf: {

@@ -1,7 +1,6 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
-
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -122,12 +121,13 @@ export NVM_DIR="$HOME/.nvm"
 
 export GPG_TTY=$(tty)
 
-export PNPM_HOME="/home/duduk/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
-if [ -d "$HOME/projects/script-dump/src" ]; then
-  PATH="$PATH:$(find "$HOME/projects/script-dump/src" -type d -print | tr '\n' ':' | sed 's/:$//')"
-fi
+# if [ -d "$HOME/projects/script-dump/src" ]; then
+  # PATH="$PATH:$(find "$HOME/projects/script-dump/src" -type d -print | tr '\n' ':' | sed 's/:$//')"
+# fi
+

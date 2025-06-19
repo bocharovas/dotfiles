@@ -65,7 +65,7 @@ vim.opt.relativenumber = true
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = "index.md",
   callback = function()
-    local script_path = vim.fn.expand("$HOME") .. "/vimwiki/tasks.sh"
+    local script_path = vim.fn.expand("$HOME") .. "/vimwiki/scripts/tasks.sh"
     if vim.fn.filereadable(script_path) == 1 then
       print("Запускаем скрипт " .. script_path)
       vim.fn.system("bash " .. script_path)
@@ -79,3 +79,5 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 vim.g.python3_host_prog = "/usr/bin/python3"
 
 require("config.autocmds")
+require("config.options")
+

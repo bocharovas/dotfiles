@@ -2,20 +2,23 @@
 
 echo "=== Проверяем и создаём симлинки ==="
 
+# Используем домашнюю директорию из переменной окружения
+DOTFILES="$HOME/dotfiles"
+
 declare -A links=(
-  ["/home/duduk/.pgpass"]="/home/duduk/dotfiles/files-crypt/pgpass"
-  ["/home/duduk/.config/nvim/init.lua"]="/home/duduk/dotfiles/files/lua/init.lua"
-  ["/home/duduk/.config/nvim/lua/autocmds.lua"]="/home/duduk/dotfiles/files/lua/autocmds.lua"
-  ["/home/duduk/.config/nvim/lua/options.lua"]="/home/duduk/dotfiles/files/lua/options.lua"
-  ["/home/duduk/.config/gh/config.yml"]="/home/duduk/dotfiles/files/config.yml"
-  ["/home/duduk/.config/xfce4/xfce4-session.xml"]="/home/duduk/dotfiles/files/xfce4-session.xml"
-  ["/home/duduk/.gitconfig"]="/home/duduk/dotfiles/files/gitconfig"
-  ["/home/duduk/.bashrc"]="/home/duduk/dotfiles/files/bashrc"
-  ["/home/duduk/.bash_aliases"]="/home/duduk/dotfiles/files-crypt/bash_aliases"
-  ["/home/duduk/.taskrc"]="/home/duduk/dotfiles/files/taskrc"
-  ["/home/duduk/.gnupg/gpg.conf"]="/home/duduk/dotfiles/files-crypt/gpg.conf"
-  ["/home/duduk/.gnupg/gpg-agent.conf"]="/home/duduk/dotfiles/files/gpg-agent.conf"
-  ["/home/duduk/.gnupg/dirmngr.conf"]="/home/duduk/dotfiles/files-crypt/dirmngr.conf"
+  ["$HOME/.pgpass"]="$DOTFILES/files-crypt/pgpass"
+  ["$HOME/.config/nvim/init.lua"]="$DOTFILES/files/lua/init.lua"
+  ["$HOME/.config/nvim/lua/config/autocmds.lua"]="$DOTFILES/files/lua/autocmds.lua"
+  ["$HOME/.config/nvim/lua/config/options.lua"]="$DOTFILES/files/lua/options.lua"
+  ["$HOME/.config/gh/config.yml"]="$DOTFILES/files/config.yml"
+  ["$HOME/.config/xfce4/xfce4-session.xml"]="$DOTFILES/files/xfce4-session.xml"
+  ["$HOME/.gitconfig"]="$DOTFILES/files/gitconfig"
+  ["$HOME/.bashrc"]="$DOTFILES/files/bashrc"
+  ["$HOME/.bash_aliases"]="$DOTFILES/files-crypt/bash_aliases"
+  ["$HOME/.taskrc"]="$DOTFILES/files/taskrc"
+  ["$HOME/.gnupg/gpg.conf"]="$DOTFILES/files-crypt/gpg.conf"
+  ["$HOME/.gnupg/gpg-agent.conf"]="$DOTFILES/files/gpg-agent.conf"
+  ["$HOME/.gnupg/dirmngr.conf"]="$DOTFILES/files-crypt/dirmngr.conf"
 )
 
 for link in "${!links[@]}"; do

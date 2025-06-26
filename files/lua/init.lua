@@ -5,6 +5,10 @@ vim.api.nvim_set_keymap('n', '<A-k>', ':m .-2<CR>==', { noremap = true, silent =
 
 vim.g.mapleader = " "
 
+vim.opt.breakindent = true
+vim.opt.showbreak = '      ..'
+vim.opt.linebreak = true
+
 -- Bootstrap lazy.nvim, если еще не установлен
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then

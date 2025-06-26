@@ -1,50 +1,39 @@
 #!/bin/bash
-# find_links — lists symlinks and unlinked files separately (with optional color)
 
-# --- Arguments ---
-use_color=true
-if [[ "$1" == "--color=never" ]]; then
-  use_color=false
-fi
+echo "=== Проверяем и создаём симлинки ==="
 
-# --- Colors ---
-RED='\033[0;31m'
-RESET='\033[0m'
-if ! $use_color; then
-  RED=''
-  RESET=''
-fi
+# Используем домашнюю директорию из переменной окружения
+DOTFILES="$HOME/dotfiles"
 
-# --- Project directories ---
-project_root="$(pwd)"
-dir1="$project_root/files"
-dir2="$project_root/files-crypt"
+declare -A links=(
+  ["$HOME/.pgpass"]="$DOTFILES/files-crypt/pgpass"
+  ["$HOME/.config/nvim/init.lua"]="$DOTFILES/files/lua/init.lua"
+  ["$HOME/.config/nvim/lua/config/autocmds.lua"]="$DOTFILES/files/lua/autocmds.lua"
+  ["$HOME/.config/nvim/lua/config/options.lua"]="$DOTFILES/files/lua/options.lua"
+  ["$HOME/.config/gh/config.yml"]="$DOTFILES/files/config.yml"
+  ["$HOME/.config/xfce4/xfce4-session.xml"]="$DOTFILES/files/xfce4-session.xml"
+  ["$HOME/.gitconfig"]="$DOTFILES/files/gitconfig"
+  ["$HOME/.bashrc"]="$DOTFILES/files/bashrc"
+  ["$HOME/.bash_aliases"]="$DOTFILES/files-crypt/bash_aliases"
+  ["$HOME/.taskrc"]="$DOTFILES/files/taskrc"
+  ["$HOME/.gnupg/gpg.conf"]="$DOTFILES/files-crypt/gpg.conf"
+  ["$HOME/.gnupg/gpg-agent.conf"]="$DOTFILES/files/gpg-agent.conf"
+  ["$HOME/.gnupg/dirmngr.conf"]="$DOTFILES/files-crypt/dirmngr.conf"
+)
 
-# --- Temp file to store link targets ---
-tempfile=$(mktemp)
-trap 'rm -f "$tempfile"' EXIT
+for link in "${!links[@]}"; do
+  target="${links[$link]}"
 
-# --- Print symlinks ---
-echo "=== LINKS TO FILES ==="
-
-find "$HOME" -type l -print0 2>/dev/null | while IFS= read -r -d '' link; do
-  target=$(readlink -f "$link")
-  if [[ "$target" == "$dir1/"* || "$target" == "$dir2/"* ]]; then
-    if [[ -e "$target" ]]; then
-      printf '%s -> %s\n' "$link" "$target"
-      echo "$target" >> "$tempfile"
-    fi
+  if [ -L "$link" ]; then
+    echo "✔️  Симлинк уже существует: $link"
+  elif [ -e "$link" ]; then
+    echo "⚠️  Файл существует и не является симлинком: $link (пропускаю)"
+  else
+    echo "➕ Создаю симлинк: $link -> $target"
+    mkdir -p "$(dirname "$link")"
+    ln -s "$target" "$link"
   fi
 done
 
-# --- Print unlinked files ---
-echo -e "\n=== FILES WITHOUT LINKS ==="
-
-sort -u "$tempfile" -o "$tempfile"
-
-find "$dir1" "$dir2" -type f | while read -r file; do
-  if ! grep -Fxq "$file" "$tempfile"; then
-    printf '%b%s%b\n' "$RED" "$file" "$RESET"
-  fi
-done
+echo "✅ Симлинки проверены и созданы, если необходимо."
 

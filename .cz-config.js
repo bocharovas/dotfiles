@@ -12,7 +12,7 @@ module.exports = {
     { value: 'release',  name: 'release:  Create a release commit 🏹' }
   ],
 
-  scopes: ['src', 'git-status', 'sys', 'autostart', 'root', 'pic', 'commitizen', 'links.sh', 'githooks'],
+  scopes: ['src', 'git-status', 'sys', 'autostart', 'root', 'pic', 'commitizen', 'links.sh', 'githooks', 'files-crypt'],
 
   allowCustomScopes: true,
 

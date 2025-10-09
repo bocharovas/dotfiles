@@ -1,7 +1,7 @@
 module.exports = {
   types: [
     { value: 'test',     name: 'test:     Adding missing tests 💍' },
-    { value: 'feat',     name: 'feat:     A new feature 🎸' },
+    { value: 'feat',     name: 'feat:     A new feature' },
     { value: 'fix',      name: 'fix:      A bug fix 🐛' },
     { value: 'chore',    name: 'chore:    Build process or auxiliary tool changes 🤖' },
     { value: 'docs',     name: 'docs:     Documentation only changes ✏️' },
@@ -12,7 +12,7 @@ module.exports = {
     { value: 'release',  name: 'release:  Create a release commit 🏹' }
   ],
 
-  scopes: ['src', 'git-status', 'sys', 'autostart', 'root', 'pic', 'commitizen', 'links.sh', 'githooks', 'files-crypt', 'bashrc'],
+  scopes: ['src', 'git-status', 'sys', 'autostart', 'root', 'pic', 'commitizen', 'links.sh', 'githooks', 'files-crypt', 'bashrc', 'bash_aliases'],
 
   allowCustomScopes: true,
 

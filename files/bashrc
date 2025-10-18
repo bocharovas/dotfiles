@@ -130,3 +130,6 @@ case ":$PATH:" in
 esac
 # pnpm end
 export PATH="$HOME/local/nvim/bin:$PATH"
+if [[ "$PREFIX" == *"com.termux"* ]]; then PS1='$ ' ; fi
+if [[ "$PREFIX" == *"com.termux"* ]]; then PS1='\W$ ' ; fi
+if [[ "$PREFIX" == *"com.termux"* ]]; then PS1='\[[01;32m\]\W\[[00m\]\$ ' ; fi

@@ -9,10 +9,16 @@ usage() {
 install() {
   echo "Running install..."
 
+  if command -v sudo >/dev/null 2>&1; then
+    SUDO="sudo"
+  else
+    SUDO=""
+  fi
+
   if ! command -v git-crypt &> /dev/null; then
 	    echo "git-crypt is not installed. Installing git-crypt..."
-	    sudo apt update
-	    sudo apt install -y git-crypt
+	    $SUDO apt update
+	    $SUDO apt install -y git-crypt
   else
 	   echo "git-crypt is already installed."	
   fi
@@ -135,3 +141,4 @@ case "$1" in
   link)    link ;;
   *)       usage ;;
 esac
+

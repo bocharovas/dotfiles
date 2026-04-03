@@ -12,7 +12,11 @@ module.exports = {
     { value: 'release',  name: 'release:  Create a release commit' }
   ],
 
-  scopes: ['src', 'files', 'git-status', 'sys', 'autostart', 'root', 'pic', 'commitizen', 'links.sh', 'githooks', 'files-crypt', 'bashrc', 'bash_aliases', 'gitconfig', 'dirmngr', 'scripts', 'pgpass'],
+  scopes: [
+    'src', 'files', 'git-status', 'sys', 'autostart', 'root', 'pic', 
+    'commitizen', 'links.sh', 'githooks', 'files-crypt', 'bashrc', 
+    'bash_aliases', 'gitconfig', 'dirmngr', 'scripts', 'pgpass', 'dotfiles-status.sh'
+  ],
 
   allowCustomScopes: true,
 

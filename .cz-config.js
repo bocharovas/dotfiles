@@ -15,7 +15,8 @@ module.exports = {
   scopes: [
     'src', 'files', 'git-status', 'sys', 'autostart', 'root', 'pic', 
     'commitizen', 'links.sh', 'githooks', 'files-crypt', 'bashrc', 
-    'bash_aliases', 'gitconfig', 'dirmngr', 'scripts', 'pgpass', 'dotfiles-status.sh'
+    'bash_aliases', 'gitconfig', 'dirmngr', 'scripts', 'pgpass',
+    'scripts-deb/dotfiles-status.sh', 'scripts-deb/links.sh',
   ],
 
   allowCustomScopes: true,

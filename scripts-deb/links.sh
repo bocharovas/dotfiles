@@ -1,9 +1,8 @@
 #!/bin/bash
 
-echo "=== Проверяем и создаём симлинки ==="
+echo "=== überprüfe und erstelle Symlinks ==="
 
-# Используем домашнюю директорию из переменной окружения
-DOTFILES="$HOME/dotfiles"
+DOTFILES="$HOME/projects/dotfiles"
 
 declare -A links=(
   ["$HOME/.pgpass"]="$DOTFILES/files-crypt/pgpass"
@@ -25,15 +24,15 @@ for link in "${!links[@]}"; do
   target="${links[$link]}"
 
   if [ -L "$link" ]; then
-    echo "✔️  Симлинк уже существует: $link"
+    echo "der Symlink existiert bereits: $link"
   elif [ -e "$link" ]; then
-    echo "⚠️  Файл существует и не является симлинком: $link (пропускаю)"
+    echo "die Datei existiert und ist kein Symlink: $link (überspringe)"
   else
-    echo "➕ Создаю симлинк: $link -> $target"
+    echo "der Symlink wird erstellt: $link -> $target"
     mkdir -p "$(dirname "$link")"
     ln -s "$target" "$link"
   fi
 done
 
-echo "✅ Симлинки проверены и созданы, если необходимо."
+echo "fertig"
 

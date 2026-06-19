@@ -24,9 +24,28 @@ for link in "${!links[@]}"; do
   target="${links[$link]}"
 
   if [ -L "$link" ]; then
-    echo "der Symlink existiert bereits: $link"
+    echo "Symlink exists: $link -> $(readlink "$link")"
+
+    read -rp "Keep / delete & recreate / skip? [k/d/s]: " answer
+    case "$answer" in
+      k|K)
+        echo "kept"
+        ;;
+      d|D)
+        echo "replacing symlink..."
+        rm "$link"
+        mkdir -p "$(dirname "$link")"
+        ln -s "$target" "$link"
+        echo "recreated"
+        ;;
+      *)
+        echo "skipped"
+        ;;
+    esac
+
   elif [ -e "$link" ]; then
     echo "die Datei existiert und ist kein Symlink: $link (überspringe)"
+
   else
     echo "der Symlink wird erstellt: $link -> $target"
     mkdir -p "$(dirname "$link")"
@@ -35,4 +54,3 @@ for link in "${!links[@]}"; do
 done
 
 echo "fertig"
-

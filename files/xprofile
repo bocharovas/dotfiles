@@ -1,2 +1,5 @@
-xset -dpms s off s noblank
+xset s off 
+xset s 0 0 
+xset s noblank
+xset -dpms
 

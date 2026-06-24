@@ -16,7 +16,7 @@ module.exports = {
     'src', 'files', 'git-status', 'sys', 'autostart', 'root', 'pic', 
     'commitizen', 'links.sh', 'githooks', 'files-crypt', 'bashrc', 
     'bash_aliases', 'gitconfig', 'dirmngr', 'scripts', 'pgpass',
-    'scripts-deb/dotfiles-status.sh', 'scripts-deb/links.sh',
+    'scripts-deb/dotfiles-status.sh', 'scripts-deb/links.sh', 'mirror.yml'
   ],
 
   allowCustomScopes: true,

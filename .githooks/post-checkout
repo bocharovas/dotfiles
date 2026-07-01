@@ -1,2 +1,3 @@
 #!/bin/bash
-./scripts/links.sh
+./scripts-deb/links.sh
+
